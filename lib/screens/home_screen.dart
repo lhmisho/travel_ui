@@ -7,7 +7,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   var _currentIndex = 0;
 
   List<IconData> _icons = [
@@ -19,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildIcon(int index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         setState(() {
           _currentIndex = index;
         });
@@ -29,13 +28,17 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 60,
         width: 60,
         decoration: BoxDecoration(
-          color: _currentIndex == index ? Theme.of(context).accentColor : Color(0xFFE7EBEE),
+          color: _currentIndex == index
+              ? Theme.of(context).accentColor
+              : Color(0xFFE7EBEE),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Icon(
           _icons[index],
           size: 25.0,
-          color: _currentIndex == index ? Theme.of(context).primaryColor : Color(0xFFB4C1C4),
+          color: _currentIndex == index
+              ? Theme.of(context).primaryColor
+              : Color(0xFFB4C1C4),
         ),
       ),
     );
@@ -62,14 +65,47 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20,
             ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: _icons
-                    .asMap()
-                    .entries
-                    .map(
-                      (MapEntry map) => _buildIcon(map.key),
-                    )
-                    .toList()),
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map(
+                    (MapEntry map) => _buildIcon(map.key),
+                  )
+                  .toList(),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Top Destinations",
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      Text(
+                        "Sell all",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Theme.of(context).primaryColor,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.w600
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
