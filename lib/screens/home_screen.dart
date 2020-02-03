@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../widgets/destination_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -77,35 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 20,
             ),
-            Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        "Top Destinations",
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      Text(
-                        "Sell all",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Theme.of(context).primaryColor,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.w600
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )
+            DestinationWidget(),
           ],
         ),
       ),
